@@ -1,5 +1,14 @@
 # Project Atlas
 
+![React](https://img.shields.io/badge/React%2019-frontend-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-build-646CFF?logo=vite&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-tested-6E9F18?logo=vitest&logoColor=white)
+
+**[▶ Live site](https://detemen.github.io/project-roadmap-site/)**
+
+![Atlas hero screenshot](docs/hero.png)
+
 An interactive roadmap/dashboard that visualizes a personal portfolio of projects — filterable by domain, stage and tech stack, with a "constellation" view of how projects relate to each other.
 
 ## Features
