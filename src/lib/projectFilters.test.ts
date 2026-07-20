@@ -8,14 +8,10 @@ import {
 } from './projectFilters';
 
 describe('project roadmap data utilities', () => {
-  it('keeps confirmed projects separate from lab references', () => {
-    const confirmed = projects.filter((project) => project.kind === 'confirmed');
-    const labs = projects.filter((project) => project.kind === 'lab');
-
-    expect(confirmed.length).toBe(5);
-    expect(labs.length).toBe(11);
-    expect(confirmed.some((project) => project.name === 'arduino')).toBe(false);
-    expect(labs.some((project) => project.name === 'arduino')).toBe(true);
+  it('every project is confirmed and links a real repo', () => {
+    expect(projects.length).toBe(15);
+    expect(projects.every((project) => project.kind === 'confirmed')).toBe(true);
+    expect(projects.every((project) => Boolean(project.repoUrl))).toBe(true);
   });
 
   it('filters confirmed projects by domain, stage, and stack', () => {
@@ -35,13 +31,13 @@ describe('project roadmap data utilities', () => {
   });
 
   it('calculates live stats from filtered data', () => {
-    const visibleProjects = getFilteredProjects(projects, { domain: 'Games' });
+    const visibleProjects = getFilteredProjects(projects, { domain: 'Trading' });
     const stats = getProjectStats(visibleProjects, projects);
 
     expect(stats.visible).toBe(visibleProjects.length);
-    expect(stats.confirmed).toBe(5);
-    expect(stats.labs).toBe(11);
-    expect(stats.domains).toBe(4);
+    expect(stats.confirmed).toBe(15);
+    expect(stats.labs).toBe(0);
+    expect(stats.domains).toBe(7);
     expect(stats.productionReady).toBeGreaterThan(0);
   });
 

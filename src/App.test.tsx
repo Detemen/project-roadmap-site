@@ -34,14 +34,12 @@ describe('Project roadmap app interactions', () => {
     expect(screen.queryByRole('dialog', { name: 'Zombie Survivor dossier' })).not.toBeInTheDocument();
   });
 
-  it('renders lab references separately from confirmed projects', () => {
+  it('hides the labs section once every project is confirmed and public', () => {
     render(<App />);
 
-    const labs = screen.getByRole('region', { name: 'Labs and references' });
-    expect(within(labs).getByText('expense-bot')).toBeInTheDocument();
-    expect(within(labs).getByText('Personal finance bot')).toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Labs and references' })).not.toBeInTheDocument();
 
     const confirmedGrid = screen.getByRole('region', { name: 'Confirmed project grid' });
-    expect(within(confirmedGrid).queryByText('expense-bot')).not.toBeInTheDocument();
+    expect(within(confirmedGrid).getByText('expense-bot')).toBeInTheDocument();
   });
 });

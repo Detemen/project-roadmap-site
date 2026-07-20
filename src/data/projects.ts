@@ -17,7 +17,6 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // ── Confirmed: public repos with a working demo ──────────────────────────
   {
     id: 'commyx-intel',
     name: 'CommyX Intel',
@@ -85,116 +84,116 @@ export const projects: Project[] = [
     demoUrl: 'https://detemen.github.io/project-roadmap-site/',
     demoLabel: 'you are here'
   },
-
-  // ── Labs: real, own projects — not published as standalone repos yet ─────
   {
     id: 'expense-bot',
     name: 'expense-bot',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Automation',
     stage: 'MVP',
     description: 'Telegram expense-tracking bot with a conversation-state flow for quick manual bookkeeping.',
     role: 'Personal finance bot',
-    stack: ['Python', 'python-telegram-bot']
+    stack: ['Python', 'python-telegram-bot'],
+    repoUrl: 'https://github.com/Detemen/expense-bot'
   },
   {
     id: 'arduino',
     name: 'arduino',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Hardware',
     stage: 'Tooling',
     description: 'ESP8266-based power-outage monitor that pings a Telegram bot the moment mains power drops or returns.',
     role: 'Home IoT monitor',
-    stack: ['ESP8266', 'C++', 'Telegram Bot API']
+    stack: ['ESP8266', 'C++', 'Telegram Bot API'],
+    repoUrl: 'https://github.com/Detemen/arduino'
   },
   {
     id: 'neural-trading-mvp',
     name: 'neural-trading-mvp',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Trading',
     stage: 'Prototype',
     description: 'BTC/USDT futures long/short signal prototype — historical candles, a small TCN model, and live signal polling.',
     role: 'ML trading signal prototype',
-    stack: ['Python', 'PyTorch', 'ccxt']
+    stack: ['Python', 'PyTorch', 'ccxt'],
+    repoUrl: 'https://github.com/Detemen/neural-trading-mvp'
   },
   {
     id: 'polymarket-weather-bot',
     name: 'polymarket-weather-bot',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Trading',
     stage: 'MVP',
     description: 'MVP for discovering, normalizing, analyzing and paper-trading Polymarket weather prediction markets.',
     role: 'Prediction market research',
-    stack: ['Python', 'SQLite', 'Polymarket CLOB']
+    stack: ['Python', 'SQLite', 'Polymarket CLOB'],
+    repoUrl: 'https://github.com/Detemen/polymarket-weather-bot'
   },
   {
     id: 'polymarket-bot',
     name: 'polymarket-bot',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Trading',
     stage: 'MVP',
     description: 'Polymarket research bot — price-dynamics analysis, a Telegram control UI, and an order-approval workflow.',
     role: 'Trading automation',
-    stack: ['Python', 'Telegram bot', 'Pandas']
+    stack: ['Python', 'Telegram bot', 'Pandas'],
+    repoUrl: 'https://github.com/Detemen/polymarket-bot'
   },
   {
     id: 'polymarket-parser',
     name: 'polymarket-parser',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Trading',
     stage: 'Tooling',
     description: 'Lightweight Polymarket market-discovery and websocket ingestion parser (CLOB/RTDS feeds).',
     role: 'Market data infrastructure',
-    stack: ['Python', 'aiohttp', 'WebSockets']
-  },
-  {
-    id: 'tg-buy-crypto',
-    name: 'tg_buy_crypto',
-    kind: 'lab',
-    domain: 'Trading',
-    stage: 'MVP',
-    description: 'Backtests Telegram crypto-signal channels against real GeckoTerminal market data and renders HTML reports.',
-    role: 'Signal-quality analytics',
-    stack: ['Python', 'Pandas', 'GeckoTerminal API']
+    stack: ['Python', 'aiohttp', 'WebSockets'],
+    repoUrl: 'https://github.com/Detemen/polymarket-parser'
   },
   {
     id: 'backtest',
     name: 'backtest',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Trading',
     stage: 'Research',
     description: 'Generic strategy-backtesting engine — indicators, settlement, and reporting modules shared across the trading bots above.',
     role: 'Strategy research bench',
-    stack: ['Python']
+    stack: ['Python'],
+    repoUrl: 'https://github.com/Detemen/backtest'
   },
   {
     id: 'math-balls-battle',
     name: 'math-balls-battle',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'Video',
     stage: 'Prototype',
     description: 'Generates short "math battle" videos — physics balls, TTS narration and auto-captions rendered frame by frame.',
     role: 'Generative video pipeline',
-    stack: ['Node.js', 'Canvas', 'TTS']
+    stack: ['Node.js', 'Canvas', 'TTS'],
+    repoUrl: 'https://github.com/Detemen/math-balls-battle',
+    demoUrl: 'https://github.com/Detemen/math-balls-battle/raw/main/battle_multiplication_vs_factorial_sound.mp4',
+    demoLabel: 'watch sample'
   },
   {
     id: 'live-translator',
     name: 'live-translator',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'AI Systems',
     stage: 'Prototype',
     description: 'Real-time audio capture and translation proof-of-concept with a small desktop GUI.',
     role: 'Live translation POC',
-    stack: ['Python', 'Speech-to-text', 'Translation API']
+    stack: ['Python', 'Speech-to-text', 'Translation API'],
+    repoUrl: 'https://github.com/Detemen/live-translator'
   },
   {
     id: 'voice-clone',
     name: 'voice-clone',
-    kind: 'lab',
+    kind: 'confirmed',
     domain: 'AI Systems',
     stage: 'Research',
     description: 'R&D comparing voice-cloning approaches — ElevenLabs, F5-TTS and Edge-TTS — for quality and latency.',
     role: 'Voice synthesis research',
-    stack: ['Python', 'ElevenLabs', 'F5-TTS']
+    stack: ['Python', 'ElevenLabs', 'F5-TTS'],
+    repoUrl: 'https://github.com/Detemen/voice-clone'
   }
 ];

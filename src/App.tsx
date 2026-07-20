@@ -75,14 +75,12 @@ function App() {
 
       <ProjectGrid projects={visibleProjects} onSelectProject={openProject} onReset={resetFilters} />
 
-      <LabsReferences projects={labs} onSelectProject={openProject} />
+      {labs.length > 0 ? <LabsReferences projects={labs} onSelectProject={openProject} /> : null}
 
       <section className="closing-band" aria-label="Contact">
-        <p className="eyebrow">Next move</p>
-        <h2>Turn the strongest systems into public case studies.</h2>
-        <p>
-          The atlas can grow with screenshots, demos, metrics and deeper project writeups as each system matures.
-        </p>
+        <p className="eyebrow">Status</p>
+        <h2>Every system here is public.</h2>
+        <p>Each entry links its real source and, where one exists, a live demo — not just a description.</p>
       </section>
 
       {selectedProject ? (
