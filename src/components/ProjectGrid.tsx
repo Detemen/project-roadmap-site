@@ -36,9 +36,22 @@ export function ProjectGrid({ projects, onSelectProject, onReset }: ProjectGridP
                   <span key={stack}>{stack}</span>
                 ))}
               </div>
-              <button className="card-action" type="button" onClick={() => onSelectProject(project)}>
-                Open dossier
-              </button>
+              <div className="card-links">
+                {project.demoUrl && (
+                  <a
+                    className="card-link primary"
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => event.stopPropagation()}
+                  >
+                    {project.demoLabel ?? 'Demo'} ↗
+                  </a>
+                )}
+                <button className="card-action" type="button" onClick={() => onSelectProject(project)}>
+                  Open dossier
+                </button>
+              </div>
             </article>
           ))}
         </div>

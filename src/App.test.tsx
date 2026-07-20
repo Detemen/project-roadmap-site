@@ -9,39 +9,39 @@ describe('Project roadmap app interactions', () => {
     render(<App />);
 
     const confirmedGrid = screen.getByRole('region', { name: 'Confirmed project grid' });
-    expect(within(confirmedGrid).getByText('SwiftClip')).toBeInTheDocument();
+    expect(within(confirmedGrid).getByText('Marble Race')).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: 'Filter stage MVP' }));
+    await user.click(screen.getByRole('button', { name: 'Filter stage Production' }));
 
-    expect(within(confirmedGrid).queryByText('SwiftClip')).not.toBeInTheDocument();
-    expect(within(confirmedGrid).getByText('polymarket-weather-bot')).toBeInTheDocument();
-    expect(screen.getByTestId('visible-project-count')).toHaveTextContent('10');
+    expect(within(confirmedGrid).queryByText('Marble Race')).not.toBeInTheDocument();
+    expect(within(confirmedGrid).getByText('CommyX Intel')).toBeInTheDocument();
+    expect(screen.getByTestId('visible-project-count')).toHaveTextContent('3');
   });
 
   it('opens and closes a project dossier from a roadmap object', async () => {
     const user = userEvent.setup();
     render(<App />);
 
-    await user.click(screen.getByRole('button', { name: 'Open dossier for SwiftClip' }));
+    await user.click(screen.getByRole('button', { name: 'Open dossier for Zombie Survivor' }));
 
-    const dialog = screen.getByRole('dialog', { name: 'SwiftClip dossier' });
+    const dialog = screen.getByRole('dialog', { name: 'Zombie Survivor dossier' });
     expect(dialog).toBeInTheDocument();
-    expect(within(dialog).getByText('Reusable video template product')).toBeInTheDocument();
+    expect(within(dialog).getByText('Godot game prototype')).toBeInTheDocument();
     expect(within(dialog).getByText('Related projects')).toBeInTheDocument();
 
     await user.click(within(dialog).getByRole('button', { name: 'Close dossier' }));
 
-    expect(screen.queryByRole('dialog', { name: 'SwiftClip dossier' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog', { name: 'Zombie Survivor dossier' })).not.toBeInTheDocument();
   });
 
   it('renders lab references separately from confirmed projects', () => {
     render(<App />);
 
     const labs = screen.getByRole('region', { name: 'Labs and references' });
-    expect(within(labs).getByText('hermes-agent')).toBeInTheDocument();
-    expect(within(labs).getAllByText('Needs label').length).toBeGreaterThan(0);
+    expect(within(labs).getByText('expense-bot')).toBeInTheDocument();
+    expect(within(labs).getByText('Personal finance bot')).toBeInTheDocument();
 
     const confirmedGrid = screen.getByRole('region', { name: 'Confirmed project grid' });
-    expect(within(confirmedGrid).queryByText('hermes-agent')).not.toBeInTheDocument();
+    expect(within(confirmedGrid).queryByText('expense-bot')).not.toBeInTheDocument();
   });
 });

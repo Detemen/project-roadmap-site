@@ -9,9 +9,9 @@ export function LabsReferences({ projects, onSelectProject }: LabsReferencesProp
   return (
     <section className="labs-section" id="labs" aria-label="Labs and references">
       <div className="section-heading">
-        <p className="eyebrow">Labs / References</p>
-        <h2>Visible, but not mixed with confirmed products.</h2>
-        <p>These folders need ownership, fork status, or clearer positioning before they move into the main atlas.</p>
+        <p className="eyebrow">Labs</p>
+        <h2>Real builds, not yet published as their own repo.</h2>
+        <p>Working code sitting locally — bots, trading experiments, small tools. No public link yet, but they're real.</p>
       </div>
       <div className="labs-wall">
         {projects.map((project) => (

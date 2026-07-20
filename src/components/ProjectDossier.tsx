@@ -25,15 +25,25 @@ export function ProjectDossier({ project, relatedProjects, onClose }: ProjectDos
             <dt>Role</dt>
             <dd>{project.role}</dd>
           </div>
-          <div>
-            <dt>Path</dt>
-            <dd>{project.path}</dd>
-          </div>
         </dl>
         <div className="stack-list dossier-stack">
           {project.stack.map((stack) => (
             <span key={stack}>{stack}</span>
           ))}
+        </div>
+        <div className="dossier-links">
+          {project.demoUrl && (
+            <a className="button primary" href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+              {project.demoLabel ?? 'Open demo'}
+            </a>
+          )}
+          {project.repoUrl ? (
+            <a className="button ghost" href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+              View source
+            </a>
+          ) : (
+            <span className="not-public">Not published as a standalone repo yet</span>
+          )}
         </div>
         <div className="related-block">
           <h3>Related projects</h3>
