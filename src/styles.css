@@ -399,7 +399,7 @@ h3 {
 
 .constellation-map {
   position: relative;
-  min-height: 560px;
+  min-height: 820px;
   border-radius: var(--radius-lg);
   background:
     radial-gradient(circle at 70% 24%, rgba(135, 104, 255, 0.2), transparent 18rem),
@@ -425,9 +425,9 @@ h3 {
 .project-node {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: clamp(126px, 14vw, 168px);
-  min-height: 96px;
-  padding: 12px 14px;
+  width: clamp(108px, 11vw, 144px);
+  min-height: 84px;
+  padding: 10px 12px;
   text-align: left;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;

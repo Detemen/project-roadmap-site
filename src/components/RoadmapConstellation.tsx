@@ -7,19 +7,33 @@ interface RoadmapConstellationProps {
   onSelectProject: (project: Project) => void;
 }
 
+const STAGE_ORDER: Project['stage'][] = ['Research', 'Prototype', 'Tooling', 'MVP', 'Production'];
 const STAGE_RADIUS: Record<Project['stage'], number> = {
-  Research: 14,
-  Prototype: 24,
-  MVP: 34,
-  Tooling: 34,
-  Production: 44
+  Research: 7,
+  Prototype: 20,
+  Tooling: 33,
+  MVP: 43,
+  Production: 49
+};
+// Rotate each ring's start angle so rings don't all line up on the same spokes.
+const STAGE_OFFSET: Record<Project['stage'], number> = {
+  Research: 0,
+  Prototype: 0.35,
+  Tooling: 0.7,
+  MVP: 0.15,
+  Production: 0.5
 };
 
-export function nodeStyle(index: number, total: number, stage: Project['stage']) {
-  const angle = (index / Math.max(total, 1)) * 2 * Math.PI - Math.PI / 2;
-  const radius = STAGE_RADIUS[stage];
+export function nodeStyle(project: Project, projects: Project[]) {
+  const sameStage = projects.filter((p) => p.stage === project.stage);
+  const posInStage = sameStage.findIndex((p) => p.id === project.id);
+  const angle =
+    (posInStage / Math.max(sameStage.length, 1)) * 2 * Math.PI -
+    Math.PI / 2 +
+    STAGE_OFFSET[project.stage] * Math.PI;
+  const radius = STAGE_RADIUS[project.stage];
   const x = 50 + radius * Math.cos(angle);
-  const y = 50 + radius * 0.82 * Math.sin(angle);
+  const y = 50 + radius * 0.9 * Math.sin(angle);
   return {
     left: `${x}%`,
     top: `${y}%`
@@ -27,6 +41,8 @@ export function nodeStyle(index: number, total: number, stage: Project['stage'])
 }
 
 export function RoadmapConstellation({ projects, activeStage, onSelectProject }: RoadmapConstellationProps) {
+  const ordered = [...projects].sort((a, b) => STAGE_ORDER.indexOf(a.stage) - STAGE_ORDER.indexOf(b.stage));
+
   return (
     <section className="constellation-section" aria-label="Interactive roadmap constellation">
       <div className="section-heading">
@@ -42,10 +58,10 @@ export function RoadmapConstellation({ projects, activeStage, onSelectProject }:
         <div className="constellation-ring ring-outer" aria-hidden="true" />
         <div className="constellation-ring ring-mid" aria-hidden="true" />
         <div className="constellation-ring ring-inner" aria-hidden="true" />
-        {projects.map((project, index) => (
+        {ordered.map((project) => (
           <button
             className="project-node"
-            style={nodeStyle(index, projects.length, project.stage)}
+            style={nodeStyle(project, ordered)}
             key={project.id}
             type="button"
             aria-label={`Open dossier for ${project.name}`}
