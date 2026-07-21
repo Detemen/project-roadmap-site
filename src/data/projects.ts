@@ -171,8 +171,8 @@ export const projects: Project[] = [
     role: 'Generative video pipeline',
     stack: ['Node.js', 'Canvas', 'TTS'],
     repoUrl: 'https://github.com/Detemen/math-balls-battle',
-    demoUrl: 'https://github.com/Detemen/math-balls-battle/raw/main/battle_multiplication_vs_factorial_sound.mp4',
-    demoLabel: 'watch sample'
+    demoUrl: 'https://detemen.github.io/math-balls-battle/',
+    demoLabel: 'play now'
   },
   {
     id: 'live-translator',
