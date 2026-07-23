@@ -1,5 +1,5 @@
 export type ProjectKind = 'confirmed' | 'lab';
-export type ProjectDomain = 'AI Systems' | 'Automation' | 'Trading' | 'Games' | 'Hardware' | 'Video' | 'Meta';
+export type ProjectDomain = 'AI Systems' | 'Automation' | 'Trading' | 'Games' | 'Hardware' | 'Video' | 'Meta' | 'Data Viz';
 export type ProjectStage = 'Prototype' | 'MVP' | 'Production' | 'Research' | 'Tooling';
 
 export interface Project {
@@ -195,5 +195,18 @@ export const projects: Project[] = [
     role: 'Voice synthesis research',
     stack: ['Python', 'ElevenLabs', 'F5-TTS'],
     repoUrl: 'https://github.com/Detemen/voice-clone'
+  },
+  {
+    id: 'atmosfera',
+    name: 'Atmosfera',
+    kind: 'confirmed',
+    domain: 'Data Viz',
+    stage: 'MVP',
+    description: 'Interactive 3D globe showing live global air quality (AQI, PM2.5, PM10, NO₂, O₃) — drill down world → continent → country → city, or search any city.',
+    role: 'Real-time geospatial data visualization',
+    stack: ['React', 'Three.js', 'TypeScript', 'Vite'],
+    repoUrl: 'https://github.com/Detemen/atmosfera-site',
+    demoUrl: 'https://detemen.github.io/atmosfera-site/',
+    demoLabel: 'live demo'
   }
 ];

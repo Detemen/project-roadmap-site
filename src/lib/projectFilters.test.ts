@@ -9,7 +9,7 @@ import {
 
 describe('project roadmap data utilities', () => {
   it('every project is confirmed and links a real repo', () => {
-    expect(projects.length).toBe(15);
+    expect(projects.length).toBe(16);
     expect(projects.every((project) => project.kind === 'confirmed')).toBe(true);
     expect(projects.every((project) => Boolean(project.repoUrl))).toBe(true);
   });
@@ -35,9 +35,9 @@ describe('project roadmap data utilities', () => {
     const stats = getProjectStats(visibleProjects, projects);
 
     expect(stats.visible).toBe(visibleProjects.length);
-    expect(stats.confirmed).toBe(15);
+    expect(stats.confirmed).toBe(16);
     expect(stats.labs).toBe(0);
-    expect(stats.domains).toBe(7);
+    expect(stats.domains).toBe(8);
     expect(stats.productionReady).toBeGreaterThan(0);
   });
 
